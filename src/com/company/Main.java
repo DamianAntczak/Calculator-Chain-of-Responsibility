@@ -8,7 +8,7 @@ public class Main {
 
         String pattern = "";
 
-        String expression = "4*2";
+        String expression = "3%2";
         String[] out = expression.split("\\D");
         String operator =  expression.replaceAll("[0-9]","");
         System.out.println(operator);
@@ -21,7 +21,9 @@ public class Main {
         OperationChain op3 = new Multiplication();
         OperationChain op4 = new Division();
         OperationChain op5 = new Exponentiation();
-        op5.setNextChain(new NotImplemented());
+        OperationChain op6 = new Modulo();
+        op6.setNextChain(new NotImplemented());
+        op5.setNextChain(op6);
         op4.setNextChain(op5);
         op3.setNextChain(op4);
         op2.setNextChain(op3);
